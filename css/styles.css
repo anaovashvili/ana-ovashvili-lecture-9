@@ -1,8 +1,9 @@
 * {
   font-family: Helvetica, Arial, sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-
-
 
 header {
   display: flex;
@@ -11,25 +12,58 @@ header {
   padding: 20px 40px;
   background-color: white;
   border-bottom: 1px solid #ccc;
+  position: relative;
 }
 
 header img {
   height: 40px;
 }
 
+nav.navi {
+  display: flex;
+  gap: 30px;
+}
+
 nav a {
-    margin-right: 30px;
   text-decoration: none;
-  color:#636060;
+  color: #636060;
   font-weight: 400;
   font-size: 16px;
 }
 
+.burger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
 
 .hero h1 {
+  position: relative;
+  z-index: 2;
   color: white;
-  font-size: 79px;
-  font-weight: 700;
+  font-size: 48px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .services-section {
@@ -58,16 +92,18 @@ nav a {
 }
 
 .service-card {
-    width: 340px;
+  width: 340px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start ;
+  align-items: flex-start;
 }
 
 .service-card img {
   width: 100%;
   height: 195px;
-
+  -webkit-object-fit: cover;
+  -moz-object-fit: cover;
+  object-fit: cover;
 }
 
 .service-card h3 {
@@ -81,47 +117,42 @@ nav a {
   width: 286px;
 }
 
-@media (max-width: 900px) {
-  .service-card {
-    width: 48%;
+/* Responsive */
+@media (max-width: 768px) {
+  .burger {
+    display: block;
   }
-}
 
-@media (max-width: 600px) {
+  .navi {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 10px;
+    display: none;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+
+  .navi.nav-active {
+    display: flex;
+  }
+
+  .services-grid {
+    justify-content: center;
+  }
+
   .service-card {
     width: 100%;
   }
 
-  nav a {
-    margin-left: 15px;
+  .hero h1 {
+    font-size: 36px;
+    text-align: center;
+    padding: 0 10px;
   }
-}
-
-.hero {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.hero h1 {
-  position: relative;
-  z-index: 2;
-  color: white;
-  font-size: 48px;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
 }
 
